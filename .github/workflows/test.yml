@@ -9,10 +9,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 
@@ -22,9 +22,14 @@ jobs:
           pip install -r requirements.txt
 
       - name: Check secrets are configured
-        env:
-          MY_EMAIL: ${{ secrets.MY_EMAIL }}
-          MY_PASSWORD: ${{ secrets.MY_PASSWORD }}
+       env:
+          # Your secrets are available as environment variables
+          # Add more secrets in Settings > Secrets > Actions
+          OWM_API_KEY: ${{ secrets.OWM_API_KEY }}
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          ACCOUNT_SID: ${{ secrets.AUTH_TOKEN }}
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+          
         run: |
           if [ -z "$MY_EMAIL" ]; then
             echo "MY_EMAIL secret is not set!"
