@@ -40,10 +40,12 @@ for period in time_periods:
             rain_forecasted = True
 
 if rain_forecasted:
-    message = client.messages.create(
+    message_body="It's going to rain in the next 12 hours. Bring an ☂️",
+else:
+    message_body="No rain forecast in next 12 hours"
+
+message = client.messages.create(
         from_='whatsapp:+14155238886',
         to='whatsapp:+447795387771',
-        body="It's going to rain in the next 12 hours. Bring an ☂️",
+        body=message_body,
     )
-else:
-    print("No rain forecast in next 12 hours")
