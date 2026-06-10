@@ -43,6 +43,6 @@ jobs:
           # Add more secrets in Settings > Secrets > Actions
           OWM_API_KEY: ${{ secrets.OWM_API_KEY }}
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
-          ACCOUNT_SID: ${{ secrets.AUTH_TOKEN }}
+          ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
           FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
         run: python main.py
